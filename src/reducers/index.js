@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
 
-import animeReducer from './animeReducer'
+import workReducer from './workReducer'
 
 const rootReducer = combineReducers({
-  anime: animeReducer
+  works: workReducer
 })
 
 export default rootReducer

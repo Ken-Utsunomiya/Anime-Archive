@@ -1,10 +1,10 @@
 import httpClient from '../apis/anime'
 
-export const fetchAnimes = () => async dispatch => {
+export const fetchWorks = () => async dispatch => {
   const response = await httpClient.get('/works')
 
   dispatch({
-    type: 'FETCH_ANIMES',
+    type: 'FETCH_WORKS',
     payload: response.works
   })
 }
