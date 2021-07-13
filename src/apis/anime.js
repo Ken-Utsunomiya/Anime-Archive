@@ -1,10 +1,10 @@
 import axios from 'axios'
 
 const httpClient = axios.create({
-  baseURL: process.env.ANNICT_API_URL,
+  baseURL: process.env.REACT_APP_API_URL,
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': process.env.ANNICT_TOKEN
+    'Authorization': `Bearer ${process.env.REACT_APP_TOKEN}`
   }
 })
 

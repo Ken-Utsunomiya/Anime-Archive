@@ -1,9 +1,10 @@
 import React from 'react'
+import WorkList from './WorkList'
 
 const App = () => {
   return (
     <div className='ui container'>
-      <h1>App</h1>
+      <WorkList />
     </div>
   )
 }
