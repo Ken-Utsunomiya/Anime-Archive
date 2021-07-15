@@ -1,9 +1,7 @@
-import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { fetchWorks } from '../actions'
 import httpClient from '../apis/anime'
 
-const WorkList = (props) => {
+const WorkList = () => {
   const [works, setWorks] = useState([])
 
   useEffect(() => {
@@ -14,12 +12,9 @@ const WorkList = (props) => {
     getWorks()
   }, [])
 
-  // console.log(works);
-
   const renderedWorks = works.map((work) => {
     return (
       <div className='item' key={work.id}>
-        <img src={work.images.recommended_url} alt="DDDDD" />
         <p>{work.title}</p>
       </div>
     )
