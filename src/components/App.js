@@ -3,11 +3,12 @@ import { Router, Route } from 'react-router-dom'
 
 import Work from './Work'
 import WorkList from './WorkList'
+import history from '../history'
 
 const App = () => {
   return (
     <div className='ui container'>
-      <Router>
+      <Router history={history}>
         <Route path='/works' exact component={WorkList} />
         <Route path='/works/:id' exact component={Work} />
       </Router>

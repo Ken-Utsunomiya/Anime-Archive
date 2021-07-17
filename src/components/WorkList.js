@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+
 import httpClient from '../apis/anime'
 
 const WorkList = () => {
@@ -15,7 +17,7 @@ const WorkList = () => {
   const renderedWorks = works.map((work) => {
     return (
       <div className='item' key={work.id}>
-        <p>{work.title}</p>
+        <Link to={`/works/${work.id}`} >{work.title}</Link>
       </div>
     )
   })
