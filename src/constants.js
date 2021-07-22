@@ -1,5 +1,8 @@
 const FETCH_WORKS = 'FETCH_WORKS'
 
+const WORKS_PER_PAGE = 25
+
 export {
-  FETCH_WORKS
+  FETCH_WORKS,
+  WORKS_PER_PAGE
 }
