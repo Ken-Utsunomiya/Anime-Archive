@@ -8,7 +8,7 @@ const WorkList = () => {
 
   useEffect(() => {
     const getWorks = async () => {
-      const response = await httpClient.get('/works')
+      const response = await httpClient.get('/works?sort_id=asc&per_page=50')
       setWorks(response.data.works)
     }
     getWorks()

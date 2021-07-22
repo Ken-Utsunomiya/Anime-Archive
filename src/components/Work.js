@@ -5,15 +5,13 @@ const Work = (props) => {
   const [work, setWork] = useState(null)
   const work_id = props.match.params.id
 
-  // console.log(props)
-
   useEffect(() => {
     const getWork = async () => {
       const response = await httpClient.get(`/works?filter_ids=${work_id}`)
       setWork(response.data.works[0])
     }
     getWork()
-  })
+  }, [])
 
   const renderedWork = () => {
     if (work) {
@@ -32,7 +30,6 @@ const Work = (props) => {
 
   return (
     <div>
-      {/* <p>Work</p> */}
       {renderedWork()}
     </div>
   )
