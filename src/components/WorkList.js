@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { Pagination } from '@material-ui/lab'
 
 import httpClient from '../apis/anime'
 import { WORKS_PER_PAGE } from '../constants'
+import Card from './Card'
 
 const WorkList = () => {
   const [data, setData] = useState({})
@@ -28,7 +28,7 @@ const WorkList = () => {
     const renderedWorks = works.map((work) => {
       return (
         <div className='item' key={work.id}>
-          <Link to={`/works/${work.id}`} >{work.title}</Link>
+          <Card id={work.id} title={work.title} />
         </div>
       )
     })
