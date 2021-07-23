@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { Pagination } from '@material-ui/lab'
 
 import httpClient from '../apis/anime'
-import { Pagination } from '@material-ui/lab'
+import { WORKS_PER_PAGE } from '../constants'
 
 const WorkList = () => {
   const [data, setData] = useState({})
@@ -38,7 +39,7 @@ const WorkList = () => {
           {renderedWorks}
         </div>
         <Pagination
-          count={Math.ceil(data.total_count / 25)}
+          count={Math.ceil(data.total_count / WORKS_PER_PAGE)}
           color="primary"
           page={currentPage}
           onChange={(_, page) => setCurrentPage(page)}
