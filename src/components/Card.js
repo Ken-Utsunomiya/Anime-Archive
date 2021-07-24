@@ -26,7 +26,7 @@ const WorkCard = ({ id, title, image_url }) => {
       <CardMedia
         className={classes.media}
         image={image}
-        title="Contemplative Reptile"
+        title={title}
       />
       <CardContent>
         <Link to={`/works/${id}`} >{title}</Link>

@@ -37,7 +37,7 @@ const WorkList = () => {
 
     return (
       <div className='ui container'>
-        <Grid container spacing={2}>
+        <Grid container spacing={3}>
           {renderedWorks}
         </Grid>
         <div>
