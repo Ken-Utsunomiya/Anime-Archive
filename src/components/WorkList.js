@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react'
+import { Pagination } from '@material-ui/lab'
+import { Grid } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 
 import httpClient from '../apis/anime'
-import { Pagination } from '@material-ui/lab'
+import { WORKS_PER_PAGE } from '../constants'
+import Card from './Card'
 
 const WorkList = () => {
   const [data, setData] = useState({})
@@ -13,7 +16,7 @@ const WorkList = () => {
   useEffect(() => {
     const getWorks = async () => {
       setLoading(true)
-      const response = await httpClient.get(`/works?sort_id=asc&page=${currentPage}`)
+      const response = await httpClient.get(`/works?sort_watchers_count=desc&page=${currentPage}`)
       setData(response.data)
       setWorks(response.data.works)
       setCurrentPage(currentPage)
@@ -26,23 +29,25 @@ const WorkList = () => {
   if (!loading) {
     const renderedWorks = works.map((work) => {
       return (
-        <div className='item' key={work.id}>
-          <Link to={`/works/${work.id}`} >{work.title}</Link>
-        </div>
+        <Grid item key={work.id}>
+          <Card id={work.id} title={work.title} image_url={work.images.recommended_url} />
+        </Grid>
       )
     })
 
     return (
-      <div>
-        <div className='ui celled list'>
+      <div className='ui container'>
+        <Grid container spacing={2}>
           {renderedWorks}
+        </Grid>
+        <div>
+          <Pagination
+            count={Math.ceil(data.total_count / WORKS_PER_PAGE)}
+            color="primary"
+            page={currentPage}
+            onChange={(_, page) => setCurrentPage(page)}
+          />
         </div>
-        <Pagination
-          count={Math.ceil(data.total_count / 25)}
-          color="primary"
-          page={currentPage}
-          onChange={(_, page) => setCurrentPage(page)}
-        />
       </div>
     )
   } else {
