@@ -10,7 +10,7 @@ const App = () => {
   return (
     <div>
       <Header />
-      <div className='ui container'>
+      <div>
         <Router history={history}>
           <Route path='/works' exact component={WorkList} />
           <Route path='/works/:id' exact component={Work} />
