@@ -1,5 +1,5 @@
 import React from 'react'
-import { Router, Route } from 'react-router-dom'
+import { Router, Route, Redirect } from 'react-router-dom'
 
 import Header from './Header'
 import Work from './Work'
@@ -12,6 +12,7 @@ const App = () => {
       <Header />
       <div style={{ paddingBottom: "2rem" }}>
         <Router history={history}>
+          <Redirect from="/" to="/works" />
           <Route path='/works' exact component={WorkList} />
           <Route path='/works/:id' exact component={Work} />
         </Router>
