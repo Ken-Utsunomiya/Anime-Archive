@@ -7,6 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import httpClient from '../apis/anime'
 import { WORKS_PER_PAGE } from '../constants'
 import Card from './Card'
+import LoadingCircle from './Loading';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -67,8 +68,8 @@ const WorkList = () => {
     )
   } else {
     return (
-      <div>
-        Loading....
+      <div style={{ position: 'relative' }}>
+        <LoadingCircle />
       </div>
     )
   }

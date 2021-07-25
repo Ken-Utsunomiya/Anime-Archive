@@ -10,7 +10,7 @@ const App = () => {
   return (
     <div>
       <Header />
-      <div style={{ paddingBottom: "2rem" }}>
+      <div style={{ padding: "2rem 0 2rem 0", display: 'flex', justifyContent: 'center' }}>
         <Router history={history}>
           <Redirect from="/" to="/works" />
           <Route path='/works' exact component={WorkList} />
