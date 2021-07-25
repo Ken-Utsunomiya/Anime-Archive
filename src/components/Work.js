@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 
 import httpClient from "../apis/anime"
 import LoadingCircle from "./Loading"
+import no_image from '../assets/images/no_image.jpg'
 
 const Work = (props) => {
   const [work, setWork] = useState({
@@ -34,10 +35,11 @@ const Work = (props) => {
 
   const renderedWork = () => {
     if (work.data) {
+      const image = work.data.images.recommended_url ? work.data.images.recommended_url : no_image
       return (
         <div className='ui content'>
           <p>{work.data.title}</p>
-          <img src={work.data.images.recommended_url} alt='NO IMAGES' />
+          <img src={image} alt='NO IMAGES' style={{ width: "70%" }} />
           <div>
             {renderedEpisodes}
           </div>
@@ -53,7 +55,7 @@ const Work = (props) => {
   }
 
   return (
-    <div>
+    <div className='ui container'>
       {renderedWork()}
     </div>
   )
