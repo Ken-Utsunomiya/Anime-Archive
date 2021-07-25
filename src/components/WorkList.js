@@ -50,7 +50,7 @@ const WorkList = () => {
     })
 
     return (
-      <div className='ui container'>
+      <div className='ui container' style={{ marginBottom: "2rem" }}>
         <Grid container spacing={3} style={{ margin: "4rem 0 2rem 0" }}>
           {renderedWorks}
         </Grid>

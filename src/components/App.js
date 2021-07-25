@@ -10,7 +10,7 @@ const App = () => {
   return (
     <div>
       <Header />
-      <div>
+      <div style={{ paddingBottom: "2rem" }}>
         <Router history={history}>
           <Route path='/works' exact component={WorkList} />
           <Route path='/works/:id' exact component={Work} />
